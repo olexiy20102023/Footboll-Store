@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+
 }
 header {
     background: linear-gradient(to right, #a3d4f7, #c3e0f9);
@@ -8,7 +9,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-
+    
 
     position: sticky;
     top: 0;
@@ -31,12 +32,17 @@ header {
     height: 100px;
     margin-right: 10px;
 }
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 nav a {
-    margin: 0 50px;
+    margin: 0 2%;
     text-decoration: none;
     color: #000;
     font-weight: bold;
-    font-size: 200%
+    font-size: 2em
 }
 .contact-btn {
     background-color: yellow;
@@ -48,6 +54,8 @@ nav a {
     font-size: 200%
 }
 .hero h1 {
+    width: 80%;
+    height: auto;
     background-color: yellow;
     display: inline-block;
     padding: 10px 20px;
@@ -118,6 +126,7 @@ nav a {
     display: flex;
     align-items: center;
     margin: 20px;
+
 }
 .product img {
     width: 80px;
@@ -125,6 +134,7 @@ nav a {
 }
 .product-info {
     flex-grow: 1;
+    font-size: 150%;
 }
 .cart {
     font-weight: bold;
@@ -136,4 +146,5 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+    font-size: 150%;
 }
