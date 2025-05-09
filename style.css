@@ -79,14 +79,14 @@ nav a {
 .image-row {
     display: flex;
     flex-direction: row;
-    gap: 100px;
+    gap: 5%;
 }
 /* .image-row img {
     width: 100px;
     height: auto;
 } */
 .image-row img {
-    width: 100%;
+    width: 30%;
     height: auto;
     aspect-ratio: attr(width) / attr(height); /* або явно: 1 / 1, 3 / 4 і т.д. */
     object-fit: contain;
