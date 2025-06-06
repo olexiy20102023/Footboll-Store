@@ -15,6 +15,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('kits');
+  const btnPrev = document.getElementById('prevBalls2');
+  const btnNext = document.getElementById('nextBalls2');
+
+  if (btnNext && btnPrev && container) {
+    btnNext.onclick = () => {
+      container.scrollBy({ left: 1000, behavior: 'smooth' });
+    };
+
+    btnPrev.onclick = () => {
+      container.scrollBy({ left: -1000, behavior: 'smooth' });
+    };
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('boots');
+  const btnPrev = document.getElementById('prevBalls3');
+  const btnNext = document.getElementById('nextBalls3');
+
+  if (btnNext && btnPrev && container) {
+    btnNext.onclick = () => {
+      container.scrollBy({ left: 1000, behavior: 'smooth' });
+    };
+
+    btnPrev.onclick = () => {
+      container.scrollBy({ left: -1000, behavior: 'smooth' });
+    };
+  }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('accessories');
+  const btnPrev = document.getElementById('prevBalls4');
+  const btnNext = document.getElementById('nextBalls4');
+
+  if (btnNext && btnPrev && container) {
+    btnNext.onclick = () => {
+      container.scrollBy({ left: 1000, behavior: 'smooth' });
+    };
+
+    btnPrev.onclick = () => {
+      container.scrollBy({ left: -1000, behavior: 'smooth' });
+    };
+  }
+});
+
+
+
+
+
+
+
+
 // Додавання до кошика
 document.querySelectorAll('.cart').forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -46,45 +107,100 @@ document.addEventListener("DOMContentLoaded", function () {
   if (cartItemsContainer) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    function renderCart() {
-      cartItemsContainer.innerHTML = "";
-      if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p>Кошик порожній.</p>";
-        if (totalEl) totalEl.textContent = "";
-        return;
-      }
+//     function renderCart() {
+//       cartItemsContainer.innerHTML = "";
+//       if (cart.length === 0) {
+//         cartItemsContainer.innerHTML = "<p>Кошик порожній.</p>";
+//         if (totalEl) totalEl.textContent = "";
+//         return;
+//       }
 
-      let total = 0;
+//       let total = 0;
 
-      cart.forEach((item, index) => {
-        total += item.price;
+//       cart.forEach((item, index) => {
+//         total += item.price;
 
-        const div = document.createElement("div");
-        div.className = "cart-item";
-        div.innerHTML = `
-  <div style="display: flex; align-items: center; width: 100%;">
-    <img src="${item.img}" alt="${item.name}" style="width: 10%; height: 100%; object-fit: contain; margin-right: 15px;">
+//         const div = document.createElement("div");
+//         div.className = "cart-item";
+//         div.innerHTML = `
+//   <div style="display: flex; align-items: center; width: 100%;">
+//     <img src="${item.img}" alt="${item.name}" style="width: 10%; height: 100%; object-fit: contain; margin-right: 15px;">
     
-    <div style="flex-grow: 1;">
-      <div style="font-weight: bold; font-size: 2em;">${item.name}</div>
-      <div style="font-size: 2em;">${item.price} грн</div>
-    </div>
+//     <div style="flex-grow: 1;">
+//       <div style="font-weight: bold; font-size: 2em;">${item.name}</div>
+//       <div style="font-size: 2em;">${item.price} грн</div>
+//     </div>
     
-    <button class="remove-btn" data-index="${index}" style="margin-left: auto; font-size: 1.5em">
-      Видалити
-    </button>
-  </div>
-`;
+//     <button class="remove-btn" data-index="${index}" style="margin-left: auto; font-size: 1.5em">
+//       Видалити
+//     </button>
+//   </div>
+// `;
 
 
 
 
 
-        cartItemsContainer.appendChild(div);
-      });
+//         cartItemsContainer.appendChild(div);
+//       });
 
-      if (totalEl) totalEl.textContent = `Загальна сума: ${total} грн`;
-    }
+//       if (totalEl) totalEl.textContent = `Загальна сума: ${total} грн`;
+//     }
+
+
+
+
+
+
+function renderCart() {
+  cartItemsContainer.innerHTML = "";
+  const cartActions = document.getElementById("cart-actions");
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = "<p>Кошик порожній.</p>";
+    if (totalEl) totalEl.textContent = "";
+    if (cartActions) cartActions.style.display = "none";
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <div style="display: flex; align-items: center; width: 100%;">
+        <img src="${item.img}" alt="${item.name}" style="width: 10%; height: 100%; object-fit: contain; margin-right: 15px;">
+        <div style="flex-grow: 1;">
+          <div style="font-weight: bold; font-size: 2em;">${item.name}</div>
+          <div style="font-size: 2em;">${item.price} грн</div>
+        </div>
+        <button class="remove-btn" data-index="${index}" style="margin-left: auto; font-size: 1.5em">
+          Видалити
+        </button>
+      </div>
+    `;
+    cartItemsContainer.appendChild(div);
+  });
+
+  if (totalEl) totalEl.textContent = `Загальна сума: ${total} грн`;
+  if (cartActions) cartActions.style.display = "block";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Початкове відображення
     renderCart();
@@ -139,6 +255,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //   window.scrollTo({ top: y, behavior: 'smooth' });
 // });
 
+// Регулювання прокрутки
+// мячі
 document.querySelector('a[href="#balls"]').addEventListener('click', function(e) {
   e.preventDefault();
 
@@ -165,7 +283,108 @@ document.querySelector('a[href="#balls"]').addEventListener('click', function(e)
   window.scrollTo({ top: y, behavior: 'smooth' });
 });
 
+// форми
 
+document.querySelector('a[href="#kits"]').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const target = document.getElementById('kits');
+  const header = document.querySelector('header');
+  const sectionTitle = document.querySelector('.section-title2');
+
+  const headerHeight = header.offsetHeight;
+
+  let sectionTitleHeight = 0;
+  let marginTop = 0;
+
+  if (sectionTitle) {
+    sectionTitleHeight = sectionTitle.offsetHeight;
+
+    const computedStyle = window.getComputedStyle(sectionTitle);
+    marginTop = parseFloat(computedStyle.marginTop); // отримуємо margin-top у пікселях
+  }
+
+  const totalOffset = headerHeight + sectionTitleHeight + marginTop/3;
+
+  const y = target.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+
+  window.scrollTo({ top: y, behavior: 'smooth' });
+});
+
+
+
+
+
+
+
+// бутси
+
+document.querySelector('a[href="#boots"]').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const target = document.getElementById('boots');
+  const header = document.querySelector('header');
+  const sectionTitle = document.querySelector('.section-title2');
+
+  const headerHeight = header.offsetHeight;
+
+  let sectionTitleHeight = 0;
+  let marginTop = 0;
+
+  if (sectionTitle) {
+    sectionTitleHeight = sectionTitle.offsetHeight;
+
+    const computedStyle = window.getComputedStyle(sectionTitle);
+    marginTop = parseFloat(computedStyle.marginTop); // отримуємо margin-top у пікселях
+  }
+
+  const totalOffset = headerHeight + sectionTitleHeight + marginTop/3;
+
+  const y = target.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+
+  window.scrollTo({ top: y, behavior: 'smooth' });
+});
+
+
+
+
+
+
+
+// футбольні аксесуари
+
+document.querySelector('a[href="#accessories"]').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const target = document.getElementById('accessories');
+  const header = document.querySelector('header');
+  const sectionTitle = document.querySelector('.section-title2');
+
+  const headerHeight = header.offsetHeight;
+
+  let sectionTitleHeight = 0;
+  let marginTop = 0;
+
+  if (sectionTitle) {
+    sectionTitleHeight = sectionTitle.offsetHeight;
+
+    const computedStyle = window.getComputedStyle(sectionTitle);
+    marginTop = parseFloat(computedStyle.marginTop); // отримуємо margin-top у пікселях
+  }
+
+  const totalOffset = headerHeight + sectionTitleHeight + marginTop/3;
+
+  const y = target.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+
+  window.scrollTo({ top: y, behavior: 'smooth' });
+});
+
+
+
+
+
+
+// Висота блока з мячами
 document.addEventListener("DOMContentLoaded", () => {
   const products = document.querySelectorAll('.tovar');
   let maxHeight = 0;
@@ -181,4 +400,24 @@ document.addEventListener("DOMContentLoaded", () => {
   products.forEach(el => {
       el.style.height = maxHeight + 'px';
   });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const confirmBtn = document.getElementById("confirm-order");
+
+  if (confirmBtn) {
+    confirmBtn.addEventListener("click", function () {
+      // Очищаємо кошик
+      localStorage.removeItem("cart");
+
+      // Можна показати повідомлення
+      alert("Замовлення підтверджено! Кошик очищено.");
+
+      // Перенаправлення назад на головну або сторінку кошика
+      window.location.href = "index.html"; // або cart.html
+    });
+  }
 });

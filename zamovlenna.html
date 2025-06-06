@@ -1,9 +1,139 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TD969W9V0G"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Підтвердження замовлення</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('zamovlenna.jpg') no-repeat center center fixed; /* локальне зображення */
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  gtag('config', 'G-TD969W9V0G');
-</script>
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      width: 100%;
+      max-width: 400px;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button-group button {
+      flex: 1;
+    }
+
+
+    .gray-button{
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color:rgb(147, 147, 147);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .gray-button:hover {
+      background-color: gray;
+    }
+    button:hover {
+      background-color: rgb(0, 0, 174);
+    }
+  </style>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TD969W9V0G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-TD969W9V0G');
+  </script>
+
+
+
+
+
+</head>
+<body>
+  <div class="container">
+    <h2>Підтвердження замовлення</h2>
+    <form id="orderForm" action="#" method="post">
+      <label for="lastname">Прізвище</label>
+      <input type="text" id="lastname" name="lastname" required>
+
+      <label for="firstname">Ім’я</label>
+      <input type="text" id="firstname" name="firstname" required>
+
+      <label for="phone">Номер телефону</label>
+      <input type="tel" id="phone" name="phone" pattern="\+?[0-9\s\-]{10,15}" placeholder="+380..." required>
+
+      <label for="card">Номер картки</label>
+      <input type="text" id="card" name="card" pattern="[0-9\s]{16,19}" placeholder="1234 5678 9012 3456" required>
+
+      <div class="button-group">
+        <button type="submit" id="confirm-order">Підтвердити замовлення</button>
+        <button type="button" class="gray-button" onclick="window.location.href='cart.html'">Повернутися</button>
+      </div>
+      
+    </form>
+  </div>
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // скасовує стандартну відправку форми
+      localStorage.removeItem("cart");
+      alert('Замовлення прийняте!');
+      window.location.href = 'index.html'; // змінити на потрібне посилання
+    });
+  </script>\
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>

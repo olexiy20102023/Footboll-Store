@@ -125,3 +125,69 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
+
+
+
+
+
+
+
+
+window.onload = function () {
+  const img = document.getElementById('myImage');
+
+  const cropTopPercent = 0.1;     // 10% обрізати зверху
+  const cropBottomPercent = 0.1;  // 10% обрізати знизу
+  const cropLeftPercent = 0;    // 10% обрізати зліва
+  const cropRightPercent = 0;   // 10% обрізати справа
+
+  const shiftDownPercent = -0.2;  // зсув вниз 5% від висоти зображення
+  const shiftRightPercent = 0.04; // зсув вправо 5% від ширини зображення
+  const scaleFactor = 1.3;        // збільшення 120%
+
+  img.onload = function () {
+    const displayWidth = img.clientWidth;
+    const displayHeight = img.clientHeight;
+
+    const cropTopPx = displayHeight * cropTopPercent;
+    const cropBottomPx = displayHeight * cropBottomPercent;
+    const cropLeftPx = displayWidth * cropLeftPercent;
+    const cropRightPx = displayWidth * cropRightPercent;
+
+    const visibleWidth = displayWidth - cropLeftPx - cropRightPx;
+    const visibleHeight = displayHeight - cropTopPx - cropBottomPx;
+
+    const shiftDownPx = displayHeight * shiftDownPercent;
+    const shiftRightPx = displayWidth * shiftRightPercent;
+
+    const container = document.createElement('div');
+
+    Object.assign(container.style, {
+      overflow: 'hidden',
+      width: visibleWidth + 'px',
+      height: visibleHeight + 'px',
+      position: 'relative',
+      display: 'inline-block',
+      verticalAlign: 'top',
+    });
+
+    Object.assign(img.style, {
+      display: 'block',
+      margin: '0',
+      padding: '0',
+      border: 'none',
+      position: 'relative',
+      width: displayWidth * scaleFactor + 'px',
+      height: displayHeight * scaleFactor + 'px',
+      top: (shiftDownPx - cropTopPx) + 'px',
+      left: (shiftRightPx - cropLeftPx) + 'px',
+    });
+
+    img.parentNode.insertBefore(container, img);
+    container.appendChild(img);
+  };
+
+  if (img.complete) img.onload();
+};

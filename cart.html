@@ -28,24 +28,26 @@
   <!-- <nav>
     <a href="index.html">Головна</a>
   </nav> -->
+  <div class="wrapper">
   <header>
     <a href="index.html" class="home-button">Головна</a>
     <h1>Кошик</h1>
   </header>
+  <h1 class="vash">Ваш кошик</h1>
 
-  <h1>Ваш кошик</h1>
-
-  <div id="cart-items">
+  <div id="cart-items" class="tovar">
     <!-- Товари будуть додані тут JavaScript'ом -->
   </div>
   <!-- <h3 id="total">Загальна сума: 0 грн</h3> -->
   <div class="cart-total" id="cart-total"></div>
-  <button id="clear-cart">Очистити кошик</button>
+  <div class="knopky" id="cart-actions" style="display: none;">
+    <button id="clear-cart">Очистити кошик</button>
+    <a href="zamovlenna.html" class="zamovlennya-button">Замовити</a>
+  </div>
   <footer>
     <div>⚽ ФУТБОЛЬНІ ТОВАРИ</div>
   </footer>
-
-
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

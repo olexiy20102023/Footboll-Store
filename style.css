@@ -60,7 +60,7 @@ nav a {
     font-size: 200%;
 }
 .koshyk {
-    background-color: blue;
+    background-color: rgb(0, 145, 255);
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
@@ -299,8 +299,12 @@ nav a {
     margin: 20px 0;
   }
   
-  button#prevBalls,
-  button#nextBalls {
+
+  
+
+
+
+.strilka {
     background-color: #007BFF;
     color: white;
     border: none;
@@ -325,11 +329,6 @@ nav a {
     vertical-align: middle;
     padding: 0;               
   }
-  
-
-
-
-
 
 
 
@@ -391,7 +390,7 @@ nav a {
 .tovar img {
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
     height: auto;
     display: block;
     margin-bottom: 10px;
@@ -433,7 +432,22 @@ nav a {
 
 
 
+.image-crop {
+    width: 100%;               /* ширина як у .tovar img */
+    margin: 0 auto 10px auto; /* центрування */
+    aspect-ratio: 1 / 1;      /* зберегти форму (за потреби) */
+    overflow: hidden;
+    position: relative;
+}
 
+.image-crop img {
+    position: absolute;
+    top: -10%;     /* обрізати 10% зверху */
+    left: -10%;    /* обрізати 10% зліва */
+    width: 120%;   /* компенсуємо зсув, показуємо тільки 80% по ширині */
+    height: 120%;  /* компенсуємо зсув, показуємо тільки 80% по висоті */
+    object-fit: cover;
+}
 
 
 
